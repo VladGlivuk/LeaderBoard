@@ -1,12 +1,16 @@
 import { FC } from "react";
-import styles from "./App.module.scss"
+import LeaderBoardHeader from "./components/LeaderBoardHeader";
+import LeaderBoardTable from "./components/LeaderBoardTable";
+import styles from "./App.module.scss";
+import "./normalize.scss";
 
-const App:FC = () => {
+const App: FC = () => {
   return (
-    <div>
-
+    <div className={styles.wrapper}>
+      <LeaderBoardHeader />
+      <LeaderBoardTable />
     </div>
-  )
-}
+  );
+};
 
-export default App; 
+export default App;

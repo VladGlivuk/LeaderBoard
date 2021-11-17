@@ -1,0 +1,38 @@
+.wrapper {
+  &__header {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 34px;
+    line-height: 32px;
+    color: #1a1c1d;
+    text-align: center;
+    & span {
+      color: #ffd100;
+    }
+  }
+  &__table {
+    background-color: #6b59cc;
+    width: 1200px;
+    height: 190px;
+    border-radius: 20px;
+    margin: 53px auto 36px;
+    padding-top: 10px;
+    &_title {
+      margin: 10px 0 0 30px;
+      font-size: 20px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 32px;
+      letter-spacing: 0px;
+      text-align: left;
+      color: #FFFFFF;
+    }
+    &_TopUsers {
+      display: flex;
+      flex-direction: row;
+      & img {
+        margin: 0 0 0px 350px;
+      }
+    }
+  }
+}
