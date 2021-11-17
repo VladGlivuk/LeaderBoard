@@ -5,22 +5,22 @@
     height: 84px;
     padding: 47px 0 0 0;
     background: url("../../../img/png/firstPerson.png");
-    &_score {
-      width: 52px;
-      height: 27px;
-      background-color: #fff;
-      border-radius: 5px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto;
-      font-family: Gilroy;
-      font-style: normal;
-      font-weight: 600;
-      font-size: 20px;
-      line-height: 32px;
-      color: #81c926;
-    }
+  }
+  &__score {
+    width: 52px;
+    height: 27px;
+    background-color: #fff;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 32px;
+    color: #81c926;
   }
   &__name {
     font-family: Lato;

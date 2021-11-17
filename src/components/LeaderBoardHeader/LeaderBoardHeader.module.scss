@@ -1,16 +1,14 @@
 .wrapper {
-  &__header {
+  .header {
     font-style: normal;
     font-weight: bold;
     font-size: 34px;
-    line-height: 32px;
-    color: #1a1c1d;
     text-align: center;
     & span {
       color: #ffd100;
     }
   }
-  &__table {
+  .table {
     background-color: #6b59cc;
     width: 1200px;
     height: 190px;
