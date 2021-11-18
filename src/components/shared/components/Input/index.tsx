@@ -1,5 +1,5 @@
-import { ChangeEvent, FC } from "react";
-import styles from "./Input.module.scss";
+import { ChangeEvent, FC } from 'react';
+import styles from './Input.module.scss';
 
 export interface InputProps {
   type: string;
@@ -8,16 +8,8 @@ export interface InputProps {
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-const Input: FC<InputProps> = ({ placeholder, name, type, onChange }) => {
-  return (
-    <input
-      className={styles.main}
-      type={type}
-      name={name}
-      onChange={onChange}
-      placeholder={placeholder}
-    />
-  );
-};
+const Input: FC<InputProps> = ({ placeholder, name, type, onChange }) => (
+  <input className={styles.main} type={type} name={name} onChange={onChange} placeholder={placeholder} />
+);
 
 export default Input;
