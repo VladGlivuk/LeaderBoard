@@ -1,13 +1,16 @@
-
 import { FC } from "react";
-import styles from "./LeaderBoardTable.module.scss"
+import User from "./User";
+import AddNewScore from "./AddNewScore";
+import styles from "./LeaderBoardTable.module.scss";
 
-const LeaderBoardTable: FC = () => {
+const LeadersBoard: FC = () => {
   return (
-    <div>
-
+    <div className={styles.main}>
+      <span className={styles.main__title}>Leaders table for this period</span>
+      <AddNewScore/>
+      <User/>
     </div>
-  )
-}
+  );
+};
 
-export default LeaderBoardTable;
+export default LeadersBoard;
