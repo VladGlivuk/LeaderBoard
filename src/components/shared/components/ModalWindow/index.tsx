@@ -1,7 +1,7 @@
-import { FC } from "react";
-import { Dialog } from "@mui/material";
-import ModalInput from "../Input";
-import styles from "./ModalWindow.module.scss";
+import { FC } from 'react';
+import { Dialog } from '@mui/material';
+import ModalInput from '../Input';
+import styles from './ModalWindow.module.scss';
 
 interface ModalWindowProps {
   open: boolean;
@@ -10,9 +10,9 @@ interface ModalWindowProps {
 }
 
 const ModalWindow: FC<ModalWindowProps> = ({ open, onClose, title }) => {
-  const handleScoreUser = () => {};
+  const handleScoreUser = () => ({});
 
-  const handleNameUser = () => {};
+  const handleNameUser = () => ({});
 
   const handleSaveButton = () => {
     onClose();
@@ -23,26 +23,12 @@ const ModalWindow: FC<ModalWindowProps> = ({ open, onClose, title }) => {
       <div className={styles.main}>
         <div className={styles.main__title}>{title}</div>
         <div className={styles.main__input}>
-          <ModalInput
-            name="userName"
-            type="string"
-            onChange={handleNameUser}
-            placeholder="Name:"
-          />
+          <ModalInput name="userName" type="string" onChange={handleNameUser} placeholder="Name:" />
         </div>
         <div className={styles.main__input}>
-          <ModalInput
-            name="userScore"
-            type="number"
-            onChange={handleScoreUser}
-            placeholder="Score:"
-          />
+          <ModalInput name="userScore" type="number" onChange={handleScoreUser} placeholder="Score:" />
         </div>
-        <button
-          className={styles.main__btn}
-          type="submit"
-          onClick={handleSaveButton}
-        >
+        <button className={styles.main__btn} type="submit" onClick={handleSaveButton}>
           Save
         </button>
       </div>
