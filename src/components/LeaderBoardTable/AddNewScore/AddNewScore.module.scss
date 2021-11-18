@@ -1,0 +1,15 @@
+.main {
+  display: inline-flex;
+  margin-left: 760px;
+  &__button {
+    background-color: #6b59cc;
+    height: 41px;
+    width: 140px;
+    border-radius: 6px;
+    color: #fff;
+    font-family: Lato;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+  }
+}
