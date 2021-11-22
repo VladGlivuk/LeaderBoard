@@ -34,6 +34,7 @@ module.exports = {
     'react/jsx-filename-extension': ['warn', { extensions: ['.tsx'] }],
     'import/no-unresolved': 'error',
     'no-nested-ternary': 'off',
+    'default-param-last': 'off',
     'prettier/prettier': [
       'error',
       {
