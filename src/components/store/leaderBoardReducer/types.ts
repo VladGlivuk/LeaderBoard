@@ -1,19 +1,25 @@
-import { CREATE_USER } from "../action-types";
-import { createUser } from "./actions";
+import { CREATE_USER, EDIT_USER } from '../action-types';
 
-export type User = {
-  score: number;
+export type Leader = {
   name: string;
-  id: string;
+  score: number;
+  avatar: string;
+  id: string | number;
+  index?: any;
 };
 
 export interface ILeaderBoardReducer {
-  allUsers: Array<User>;
+  allUsers: Array<Leader>;
 }
 
 type CreateUser = {
   type: typeof CREATE_USER;
-  payload: User;
+  payload: Leader;
 };
 
-export type ActionType = CreateUser;
+type EditUser = {
+  type: typeof EDIT_USER;
+  payload: Leader;
+};
+
+export type ActionType = CreateUser | EditUser;

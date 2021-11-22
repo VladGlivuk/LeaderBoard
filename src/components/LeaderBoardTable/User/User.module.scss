@@ -1,4 +1,7 @@
 .main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 45px;
   height: 100px;
   &__number {
@@ -14,7 +17,7 @@
   }
   &__name {
     font-size: 24px;
-    margin: 15px 0 0 60px;
+    margin: 15px 0 0 50px;
   }
   &__position {
     display: inline-block;

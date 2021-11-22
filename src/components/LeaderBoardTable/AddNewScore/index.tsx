@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
+import AddNewScoreModal from './AddNewScoreModal';
 import styles from './AddNewScore.module.scss';
-import ModalWindow from '../../shared/components/ModalWindow';
 
 const AddNewScore: FC = () => {
   const [open, setOpen] = useState(false);
@@ -12,7 +12,7 @@ const AddNewScore: FC = () => {
       <button className={styles.main__button} type="submit" onClick={handleOpen}>
         + Add new score
       </button>
-      <ModalWindow title="Add user score" open={open} onClose={handleClose} />
+      <AddNewScoreModal open={open} onClose={handleClose} />
     </div>
   );
 };
