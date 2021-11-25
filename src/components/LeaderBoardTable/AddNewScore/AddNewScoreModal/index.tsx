@@ -2,7 +2,7 @@ import { FC, ChangeEvent, useState } from 'react';
 import { Dialog } from '@mui/material';
 import { useDispatch } from 'react-redux';
 import Input from 'components/shared/components/Input';
-import { createUser } from 'components/store/leaderBoardReducer/actions';
+import { addUser } from 'store/leaderBoardReducer/actions';
 import styles from './AddNewScoreModal.module.scss';
 
 interface AddNewScoreModalProps {
@@ -26,7 +26,7 @@ const AddNewScoreModal: FC<AddNewScoreModalProps> = ({ open, onClose }) => {
   const handleCreateUserSaveButton = () => {
     onClose();
     if (name && score) {
-      dispatch(createUser(name, score));
+      dispatch(addUser(name, score));
       setName('');
       setScore(0);
     }
