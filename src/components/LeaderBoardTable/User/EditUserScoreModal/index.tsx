@@ -2,18 +2,19 @@ import { Dialog } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { ChangeEvent, FC, useEffect, useState } from 'react';
 import Input from 'components/shared/components/Input';
-import { Leader } from 'components/store/leaderBoardReducer/types';
-import { IStore } from 'components/store';
-import { editUser } from 'components/store/leaderBoardReducer/actions';
+import { Leader } from 'store/leaderBoardReducer/types';
+import { IStore } from 'store';
+import { editUser } from 'store/leaderBoardReducer/actions';
 import styles from './ModalWindow.module.scss';
 
 interface EditUserScoreModalProps {
   open: boolean;
   onClose: () => void;
   index: number;
+  id: string;
 }
 
-const EditUserScoreModal: FC<EditUserScoreModalProps> = ({ open, onClose, index }) => {
+const EditUserScoreModal: FC<EditUserScoreModalProps> = ({ open, onClose, index, id }) => {
   const dispatch = useDispatch();
   const [editName, setEditName] = useState('');
   const [editScore, setEditScore] = useState(0);
@@ -30,7 +31,7 @@ const EditUserScoreModal: FC<EditUserScoreModalProps> = ({ open, onClose, index 
 
   const handleEditUserButton = () => {
     onClose();
-    dispatch(editUser(index, editName, editScore));
+    dispatch(editUser(id, editName, editScore));
   };
 
   useEffect(() => {

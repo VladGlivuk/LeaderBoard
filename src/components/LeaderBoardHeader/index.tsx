@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import TopUser from './TopUser';
+import FetchButton from './FetchButton';
 import headerImage from '../../img/svg/headerImage.svg';
-
 import styles from './LeaderBoardHeader.module.scss';
 
 const LeaderBoardHeader: FC = () => (
@@ -19,6 +19,7 @@ const LeaderBoardHeader: FC = () => (
         <img src={headerImage} alt="headerImage" />
       </div>
     </div>
+    <FetchButton />
   </div>
 );
 
