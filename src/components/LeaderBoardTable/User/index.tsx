@@ -8,9 +8,10 @@ interface IUserProps {
   leader: Leader;
   index: number;
   id: string;
+  positionDifference: number;
 }
 
-const User: FC<IUserProps> = ({ leader, index, id }) => {
+const User: FC<IUserProps> = ({ leader, index, id, positionDifference }) => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -21,7 +22,17 @@ const User: FC<IUserProps> = ({ leader, index, id }) => {
       <img src={leader.avatar} alt="avatar" />
       <span className={styles.main__score}>{leader.score}</span>
       <span className={styles.main__name}>{leader.name}</span>
-      <div className={styles.main__position}>2 places </div>
+      <div
+        className={
+          positionDifference >= 1
+            ? styles.main__increasedPosition
+            : positionDifference === 0
+            ? styles.main__positionWithoutChanges
+            : styles.main__decreasedPosition
+        }
+      >
+        {positionDifference}
+      </div>
       <button className={styles.main__editBtn} onClick={handleOpen}>
         <img src={editBtn} alt="editUser" />
       </button>

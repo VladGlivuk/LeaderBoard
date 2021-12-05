@@ -19,7 +19,8 @@ const EditUserScoreModal: FC<EditUserScoreModalProps> = ({ open, onClose, index,
   const [editName, setEditName] = useState('');
   const [editScore, setEditScore] = useState(0);
 
-  const users: Array<Leader> = useSelector((store: IStore) => store.leaderBoard.allUsers);
+  const users: Array<Array<Leader>> = useSelector((store: IStore) => store.leaderBoard.allUsers);
+  const currentDay: number = useSelector((store: IStore) => store.leaderBoard.currentDay);
 
   const handleEditNameUser = (e: ChangeEvent<HTMLInputElement>) => {
     setEditName(e.target.value);
@@ -35,8 +36,8 @@ const EditUserScoreModal: FC<EditUserScoreModalProps> = ({ open, onClose, index,
   };
 
   useEffect(() => {
-    setEditName(users[index].name);
-    setEditScore(users[index].score);
+    setEditName(users[currentDay].find(user => user.id === id)?.name || editName);
+    setEditScore(users[currentDay].find(user => user.id === id)?.score || editScore);
   }, [users, index]);
 
   return (

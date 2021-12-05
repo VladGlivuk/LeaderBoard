@@ -25,7 +25,7 @@ const AddNewScoreModal: FC<AddNewScoreModalProps> = ({ open, onClose }) => {
 
   const handleCreateUserSaveButton = () => {
     onClose();
-    if (name && score) {
+    if (name) {
       dispatch(addUser(name, score));
       setName('');
       setScore(0);

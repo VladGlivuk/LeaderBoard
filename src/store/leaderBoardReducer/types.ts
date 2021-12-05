@@ -1,19 +1,30 @@
-import { EDIT_USER, FETCH_USERS, ADD_USER } from '../action-types';
+import {
+  EDIT_USER,
+  FETCH_USERS,
+  ADD_USER,
+  PREVIOUS_DAY,
+  NEXT_DAY,
+  CURRENT_DAY,
+  FIND_BEST_LEADERS,
+} from '../action-types';
 
 export type Leader = {
   name: string;
   score: number;
   avatar?: string;
   id: string;
+  positionDifference: number;
 };
-
-export interface ILeaderBoardReducer {
-  allUsers: Array<Leader>;
-}
 
 export type Response = {
   'display-name': string;
 };
+
+export interface ILeaderBoardReducer {
+  allUsers: Leader[][];
+  currentDay: number;
+  topLeaders: Array<Leader>;
+}
 
 type EditUser = {
   type: typeof EDIT_USER;
@@ -30,4 +41,24 @@ export type AddUser = {
   payload: Leader;
 };
 
-export type ActionType = EditUser | FetchUsers | AddUser;
+export type PreviousDay = {
+  type: typeof PREVIOUS_DAY;
+  payload: undefined;
+};
+
+export type NextDay = {
+  type: typeof NEXT_DAY;
+  payload: undefined;
+};
+
+export type CurrentDay = {
+  type: typeof CURRENT_DAY;
+  payload: undefined;
+};
+
+export type FindBestLeaders = {
+  type: typeof FIND_BEST_LEADERS;
+  payload: undefined;
+};
+
+export type ActionType = EditUser | FetchUsers | AddUser | PreviousDay | NextDay | CurrentDay | FindBestLeaders;
