@@ -1,5 +1,5 @@
-import { FC, useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { FC } from 'react';
+import { useSelector } from 'react-redux';
 import { Leader } from 'store/leaderBoardReducer/types';
 import { IStore } from 'store';
 import TopUser from './TopUser';

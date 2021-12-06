@@ -1,4 +1,3 @@
-import { currentDay } from 'store/leaderBoardReducer/actions';
 import { nanoid } from 'nanoid';
 import update from 'immutability-helper';
 import {
@@ -103,60 +102,6 @@ const leaderBoardReducer = (state = initialState, action: ActionType): ILeaderBo
     }
 
     case FIND_BEST_LEADERS: {
-      // const topUsers: Leader[] = [];
-      // const sortedUsers = state.allUsers.flat().sort((a, b) => b.score - a.score);
-      // sortedUsers.forEach(user => {
-      //   if (topUsers.length >= 4) return;
-      //   const existsTopUser = state.topLeaders.find(topUser => user.id === topUser.id);
-      //   if (!existsTopUser) {
-      //     topUsers.push(user);
-      //     return;
-      //   }
-      //   const isInNewTopUsers = topUsers.findIndex(topUser => topUser.id === user.id) >= 0;
-      //   console.log(existsTopUser);
-      //   if (!isInNewTopUsers) topUsers.push(existsTopUser.score > user.score ? existsTopUser : user);
-      // });
-
-      // let topUsers: Leader[] = [];
-      // const topUsers = state.allUsers
-      //   .flat()
-      //   .sort((a, b) => b.score - a.score)
-      //   .slice(0, 4);
-
-      // } else {
-      //   const sortedUsers = state.allUsers.flat().sort((a, b) => b.score - a.score);
-      //   console.log(sortedUsers);
-      //   sortedUsers.forEach(user => {
-      //     if (topUsers.length < 4) return;
-      //     const existTopUser = state.topLeaders.find(topUser => topUser.id === user.id);
-      //   });
-      // }
-
-      // const sortedUsers = state.allUsers.flat().sort((a, b) => b.score - a.score);
-      //   console.log(sortedUsers);
-      //   sortedUsers.forEach(user => {
-      //     if (topUsers.length < 4) return;
-      //     const existTopUser = state.topLeaders.find(topUser => topUser.id === user.id);
-      //     console.log(user);
-      //     if (existTopUser) {
-      //       // const existTopUser = topUsers.find(topUser => topUser.id === user.id);
-      //       topUsers.push(existTopUser.score > user.score ? existTopUser : user);
-      //     }
-      //     const userInCurrentTop = state.topLeaders.find(topUser => topUser.id === user.id);
-      //     if (userInCurrentTop) {
-      //       topUsers.push(userInCurrentTop.score > user.score ? userInCurrentTop : user);
-      //     } else {
-      //       topUsers.push(user);
-      //     }
-      //   });
-
-      // const topUsers = state.allUsers.flat().sort((a, b) => b.score - a.score);
-      // const result = topUsers.slice(0, 4).filter(user => {
-      //   const userAsLeader = state.topLeaders.find(topUser => topUser.id === user.id);
-      //   if (userAsLeader) userAsLeader.score = userAsLeader.score > user.score ? userAsLeader.score : user.score;
-      //   return true;
-      // });
-
       let topUsers: Leader[] = [];
       if (state.currentDay < 1) {
         const firstDayTopLeaders = state.allUsers
@@ -171,15 +116,16 @@ const leaderBoardReducer = (state = initialState, action: ActionType): ILeaderBo
         if (state.topLeaders[3].score > sortedCurrentDay[0].score) {
           topUsers = state.topLeaders;
         }
-        console.log(sortedCurrentDay);
-        const newTopUsers: Array<Leader> = [];
+        const newTopUsers: Array<Leader> = [...state.topLeaders];
         sortedCurrentDay.forEach(user => {
-          console.log('newTopUsers', newTopUsers);
-          const existingUser = state.topLeaders.find(topLeader => topLeader.id === user.id);
-          if (existingUser) newTopUsers.push(existingUser.score > user.score ? existingUser : user);
-          else newTopUsers.push(user);
+          const existingUser = newTopUsers.find(topLeader => topLeader.id === user.id);
+          if (existingUser && user.score > existingUser.score) {
+            newTopUsers[newTopUsers.findIndex(topUser => topUser.id === existingUser.id)] = user;
+          } else if (!existingUser) {
+            newTopUsers.push(user);
+          }
         });
-        topUsers = newTopUsers.sort((a, b) => b.score - a.score);
+        topUsers = newTopUsers.sort((a, b) => b.score - a.score).slice(0, 4);
       }
       return {
         ...state,

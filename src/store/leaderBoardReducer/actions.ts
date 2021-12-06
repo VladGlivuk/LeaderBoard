@@ -11,7 +11,7 @@ import {
   NEXT_DAY,
   FIND_BEST_LEADERS,
 } from '../action-types';
-import { AddUser, FetchUsers, Leader, Response } from './types';
+import { AddUser, FetchUsers, Response } from './types';
 
 export const editUser = (id: string, name: string, score: number) => ({
   type: EDIT_USER,
