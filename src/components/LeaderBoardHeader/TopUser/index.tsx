@@ -1,17 +1,17 @@
 import { FC } from 'react';
+import { Leader } from 'store/leaderBoardReducer/types';
 import styles from './TopUser.module.scss';
 
 interface ITopUserProps {
-  score: number;
-  name: string;
+  leader: Leader;
 }
 
-const TopUser: FC<ITopUserProps> = ({ score, name }) => (
+const TopUser: FC<ITopUserProps> = ({ leader }) => (
   <div className={styles.main}>
     <div className={styles.main__photo}>
-      <div className={styles.main__score}>{score}</div>
+      <div className={styles.main__score}>{leader.score}</div>
     </div>
-    <div className={styles.main__name}>{name}</div>
+    <div className={styles.main__name}>{leader.name}</div>
   </div>
 );
 

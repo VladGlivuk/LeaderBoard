@@ -7,6 +7,10 @@
     & span {
       color: #ffd100;
     }
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+    }
   }
   .table {
     background-color: #6b59cc;
@@ -23,7 +27,7 @@
       line-height: 32px;
       letter-spacing: 0px;
       text-align: left;
-      color: #FFFFFF;
+      color: #ffffff;
     }
     &_TopUsers {
       display: flex;

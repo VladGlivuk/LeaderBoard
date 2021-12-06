@@ -1,0 +1,23 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  margin-left: 350px;
+  &__prevDay_btn_disabled {
+    background-color: gray;
+  }
+  &__prevDay_btn {
+    background-color: black;
+  }
+  &__curDay_btn_disabled {
+    background-color: gray;
+  }
+  &__curDay_btn {
+    background-color: black;
+  }
+  &__nextDay_btn_disabled {
+    background-color: gray;
+  }
+  &__nextDay_btn {
+    background-color: black;
+  }
+}
