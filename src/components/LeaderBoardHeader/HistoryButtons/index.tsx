@@ -1,4 +1,4 @@
-import ChangeDayButton from 'components/shared/components/ChnageDayButton';
+import ChangeDayButton from 'components/shared/components/ChangeDayButton';
 import { FC, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { IStore } from 'store';
